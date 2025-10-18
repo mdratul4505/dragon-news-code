@@ -14,7 +14,9 @@ const router = createBrowserRouter([
             },
             {
                 path:'/catagory/:id',
-                Component:CategoryNews
+                Component:CategoryNews,
+                loader: () => fetch('/news.json'),
+                errorElement: <h1>❌ Failed to load news</h1>,
             },
         ]
     },
@@ -28,8 +30,16 @@ const router = createBrowserRouter([
     },
      {
         path:'/*',
-        element:<h1>error</h1>
+        element: <h1>404 - Page Not Found</h1>,
     },
-])
+],
+
+    {
+    
+    HydrateFallback: <p className="text-center text-gray-400 mt-10">Loading app...</p>,
+  }
+
+
+)
 
 export default router;
