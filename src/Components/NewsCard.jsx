@@ -1,5 +1,6 @@
 import { FaBookmark, FaShareAlt, FaStar, FaRegEye } from "react-icons/fa";
 
+
 const NewsCard = ({ news }) => {
   const {
     title,
